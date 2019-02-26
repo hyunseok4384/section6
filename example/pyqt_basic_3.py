@@ -24,8 +24,8 @@ class TestForm(QMainWindow):
         self.lineEdit.move(100,20)
         self.plainEdit.setGeometry(QtCore.QRect(20,90,361,231))
 
-        self.lineEdit.textChanged.connect(self.lineEditChanged)
-        self.lineEdit.returnPressed.connect(self.lineEditEnter)
+        self.lineEdit.textChanged.connect(self.lineEditChanged) #라인에디터에 뭔가 입력되었을때
+        self.lineEdit.returnPressed.connect(self.lineEditEnter) #라인에디터에 엔터를 쳤을때
 
         #상태바
         self.statusBar = QStatusBar(self)
@@ -35,7 +35,7 @@ class TestForm(QMainWindow):
         self.statusBar.showMessage(self.lineEdit.text())
 
     def lineEditEnter(self):
-        self.plainEdit.appendPlainText(self.lineEdit.text())
+        self.plainEdit.appendPlainText(self.lineEdit.text()) #insertPlainText()는 줄바꿈 안해줌
         self.lineEdit.clear()
 
 

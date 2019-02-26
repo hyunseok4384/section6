@@ -8,7 +8,7 @@ class TestForm(QMainWindow): #QMainWindow가 QtWidgets보다 더 좋음
         self.setupUI()
 
     def setupUI(self):
-        self.setWindowTitle("PyQT Test")
+        self.setWindowTitle("PyQT Test") #타이틀
         self.setGeometry(800,400,500,300) #실행되는 위치 지정(x, y, 가로길이, 세로길이)
 
         btn_1 = QPushButton("Click1", self)
@@ -19,7 +19,7 @@ class TestForm(QMainWindow): #QMainWindow가 QtWidgets보다 더 좋음
         btn_2.move(20,60)
         btn_3.move(20,100)
 
-        btn_1.clicked.connect(self.btn_1_clicked)
+        btn_1.clicked.connect(self.btn_1_clicked) #btn_1이 클릭되면 btn_1_clicked함수에 연결
         btn_2.clicked.connect(self.btn_2_clicked)
         btn_3.clicked.connect(QCoreApplication.instance().quit)
 
