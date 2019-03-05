@@ -64,7 +64,7 @@
       <pixmap>../resource/you_viewer_logo.png</pixmap>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="loginButton">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -100,6 +100,21 @@
     <property name="title">
      <string>미리보기</string>
     </property>
+    <widget class="QWebEngineView" name="webEngineView">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>511</width>
+       <height>381</height>
+      </rect>
+     </property>
+     <property name="url">
+      <url>
+       <string>about:blank</string>
+      </url>
+     </property>
+    </widget>
    </widget>
    <widget class="Line" name="line">
     <property name="geometry">
@@ -175,7 +190,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_2">
+    <widget class="QPushButton" name="previewButton">
      <property name="geometry">
       <rect>
        <x>332</x>
@@ -198,7 +213,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QToolButton" name="toolButton">
+    <widget class="QToolButton" name="fileNavButton">
      <property name="geometry">
       <rect>
        <x>330</x>
@@ -221,7 +236,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_3">
+    <widget class="QPushButton" name="startButton">
      <property name="geometry">
       <rect>
        <x>190</x>
@@ -365,6 +380,13 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QWebEngineView</class>
+   <extends>QWidget</extends>
+   <header location="global">QtWebEngineWidgets/QWebEngineView</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

@@ -7,7 +7,7 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5 import QtWebEngineWidgets
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -42,10 +42,6 @@ class Ui_MainWindow(object):
         self.groupBox_2 = QtWidgets.QGroupBox(self.centralwidget)
         self.groupBox_2.setGeometry(QtCore.QRect(250, 10, 531, 411))
         self.groupBox_2.setObjectName("groupBox_2")
-        self.webEngineView = QtWebEngineWidgets.QWebEngineView(self.groupBox_2)
-        self.webEngineView.setGeometry(QtCore.QRect(10, 20, 511, 381))
-        self.webEngineView.setUrl(QtCore.QUrl("about:blank"))
-        self.webEngineView.setObjectName("webEngineView")
         self.line = QtWidgets.QFrame(self.centralwidget)
         self.line.setGeometry(QtCore.QRect(10, 420, 781, 16))
         self.line.setFrameShape(QtWidgets.QFrame.HLine)
@@ -70,6 +66,7 @@ class Ui_MainWindow(object):
         self.previewButton.setGeometry(QtCore.QRect(332, 30, 51, 31))
         self.previewButton.setObjectName("previewButton")
         self.pathTextEdit = QtWidgets.QLineEdit(self.groupBox_3)
+        self.pathTextEdit.setReadOnly(True)
         self.pathTextEdit.setGeometry(QtCore.QRect(90, 80, 231, 31))
         self.pathTextEdit.setObjectName("pathTextEdit")
         self.fileNavButton = QtWidgets.QToolButton(self.groupBox_3)
@@ -81,13 +78,14 @@ class Ui_MainWindow(object):
         self.startButton = QtWidgets.QPushButton(self.groupBox_3)
         self.startButton.setGeometry(QtCore.QRect(190, 170, 93, 51))
         self.startButton.setObjectName("startButton")
-        self.exitButton = QtWidgets.QPushButton(self.groupBox_3)
-        self.exitButton.setGeometry(QtCore.QRect(290, 170, 93, 51))
-        self.exitButton.setObjectName("exitButton")
+        self.pushButton_4 = QtWidgets.QPushButton(self.groupBox_3)
+        self.pushButton_4.setGeometry(QtCore.QRect(290, 170, 93, 51))
+        self.pushButton_4.setObjectName("pushButton_4")
         self.groupBox_4 = QtWidgets.QGroupBox(self.centralwidget)
         self.groupBox_4.setGeometry(QtCore.QRect(410, 430, 381, 231))
         self.groupBox_4.setObjectName("groupBox_4")
         self.plainTextEdit = QtWidgets.QPlainTextEdit(self.groupBox_4)
+        self.plainTextEdit.setReadOnly(True)
         self.plainTextEdit.setGeometry(QtCore.QRect(10, 20, 361, 201))
         self.plainTextEdit.setObjectName("plainTextEdit")
         self.line_2 = QtWidgets.QFrame(self.centralwidget)
@@ -140,11 +138,10 @@ class Ui_MainWindow(object):
         self.previewButton.setText(_translate("MainWindow", "확인"))
         self.fileNavButton.setText(_translate("MainWindow", "..."))
         self.startButton.setText(_translate("MainWindow", "시작"))
-        self.exitButton.setText(_translate("MainWindow", "종료"))
+        self.pushButton_4.setText(_translate("MainWindow", "종료"))
         self.groupBox_4.setTitle(_translate("MainWindow", "로그"))
         self.label_2.setText(_translate("MainWindow", "브라우저 로딩"))
         self.label_3.setText(_translate("MainWindow", "다운로드 로딩"))
-
 
 
 
