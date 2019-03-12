@@ -83,8 +83,8 @@ class Main(QMainWindow, Ui_MainWindow):
 
         self.youtb_fsize = self.youtb[self.streamCombobox.currentIndex()].filesize
         print("fsize", self.youtb_fsize)
-        self.youtb_fsize = self.youtb[self.streamCombobox.currentIndex()].download(down_dir)
-        self.append_log_msg("Down Click")
+        self.youtb[self.streamCombobox.currentIndex()].download(down_dir)
+        self.append_log_msg("Download Click")
 
 
     @pyqtSlot()
@@ -163,6 +163,7 @@ class Main(QMainWindow, Ui_MainWindow):
     def initialYouWork(self, url):
         video_list = pytube.YouTube(url)
         #로딩바 계산
+        video_list.register_on_progress_callback(self.show_progressDownloading)
 
         self.youtb = video_list.streams.all()
         self.streamCombobox.clear()
@@ -174,16 +175,21 @@ class Main(QMainWindow, Ui_MainWindow):
             tmp_list.append(str(q.fps or ""))
             tmp_list.append(str(q.abr or ""))
 
-            #print(tmp_list)
+            #print("step2",tmp_list)
             str_list = [x for x in tmp_list if x != ""]
             #print("step3", str_list)
 
-            #print("join", ",".join(str_list))
+            print("join", ",".join(str_list))
             self.streamCombobox.addItem(",".join(str_list))
 
     @pyqtSlot(int)
     def showProgressBrowserLoading(self, v):
         self.progressBar.setValue(v)
+
+    def show_progressDownloading(self, stream, chunk, file_handle, bytes_remaining):
+        print(int(self.youtb_fsize - bytes_remaining))
+        print("bytes_remaining",bytes_remaining)
+        self.progressBar_2.setValue(int(((self.youtb_fsize - bytes_remaining) / self.youtb_fsize)*100))
 
 
 
